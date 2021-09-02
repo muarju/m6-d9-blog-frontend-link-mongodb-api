@@ -1,0 +1,14 @@
+.blog-navbar-brand {
+  width: 180px;
+}
+
+#navbarScroll{
+  justify-content: flex-end;
+}
+
+.navbar-button{
+margin-right: 15px;
+}
+.navbar-button svg{
+  margin-right: 10px;
+}
