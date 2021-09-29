@@ -8,6 +8,7 @@ import Blog from "./views/blog";
 import NewBlogPost from "./views/new";
 import { BrowserRouter, Route } from "react-router-dom";
 import Logout from "./components/login/logout";
+import MeStories from "./views/me/stories";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/signup" exact component={SignUp} />
       <Route path="/blog/:id" exact component={Blog} />
       <Route path="/new" exact component={NewBlogPost} />
+      <Route path="/me/stories" exact component={MeStories} />
       <Footer />
     </BrowserRouter>
   );
