@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import BlogList from "../../components/blog/blog-list";
 import "./styles.css";
 import NavBar from '../../components/navbar'
+import jwt_decode from "jwt-decode";
 
 export default class Home extends Component {
   constructor(props) {
@@ -10,12 +11,18 @@ export default class Home extends Component {
     
   }
   render() {
-    const name = localStorage.getItem('name');
+    const token = localStorage.getItem('token');
+    let userDatails;
+    if(token){
+      userDatails=jwt_decode(token)
+    }
+    
+    
     return (
      <>
       <NavBar></NavBar>
       <Container fluid="sm">
-        {name ? <h1 className="blog-main-title">Welcome Back, {name}!</h1> : <h1 className="blog-main-title">Welcome to the Strive Blog!</h1>}
+        {token ? <h1 className="blog-main-title">Welcome Back, {userDatails.name}!</h1> : <h1 className="blog-main-title">Welcome to the Strive Blog!</h1>}
         
         <BlogList />
       </Container>
