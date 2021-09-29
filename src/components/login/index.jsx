@@ -7,7 +7,6 @@ import NavBar from '../navbar'
 
 const Login = () => {
     const history = useHistory();
-    const localDataEmail=localStorage.getItem('email');
     const [isValid, setIsValid] = useState(false);
     const [user, setUser] = useState({
         email: "",
@@ -26,14 +25,8 @@ const Login = () => {
         setIsValid(true) //showing error alert
         console.log(data)
         }else{
-        if(data.email){
-            localStorage.setItem('email', data.email);
-            localStorage.setItem("name", data.name);
-            localStorage.setItem("avatar", data.avatar);
+            localStorage.setItem('token', data);
             history.push("/");
-        }else{
-            console.log("Email or Password invalid");
-        }
         }
     }
     return (
