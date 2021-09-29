@@ -1,19 +1,19 @@
 import React, {useState } from "react";
 import { Row, Col,Container,Alert } from "react-bootstrap";
-import { Link,useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from 'axios'
 import NavBar from '../navbar'
 
 const SignUp= ()=> {
 
-    const history = useHistory();
-    const localDataEmail=localStorage.getItem('email');
     const [isValid, setIsValid] = useState(false);
     const [isError, setIsError] = useState(false);
     const [user, setUser] = useState({
         name:"",
         email: "",
-        password: ""
+        password: "",
+        role: 2,
+        avatar: `https://ui-avatars.com/api/?name=${name}`,
       });
       const { name, email, password } = user;
       const onInputChange = e => {
@@ -77,7 +77,6 @@ const SignUp= ()=> {
                 <label htmlFor="exampleInputPassword1">Password</label>
                 <input type="password" name="password"  onChange={e => onInputChange(e)} className="form-control" id="exampleInputPassword1" placeholder="Password" required/>
             </div>
-          
             <button type="submit" className="btn btn-primary mb-2">Sing Up</button>
             </form>
             <p text-align="center">Already have an account? <Link to='/login'>Login</Link></p>
