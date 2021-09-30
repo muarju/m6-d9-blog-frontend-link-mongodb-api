@@ -3,10 +3,13 @@ import { Container,FormControl, Navbar,Nav, Button,Form } from "react-bootstrap"
 import { Link, useHistory } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "./styles.css";
+
+
+
 const NavBar =() => {
   const history= useHistory()
   const [isValid, setIsValid] = useState(false);
-  const email = localStorage.getItem('email');
+  const token = localStorage.getItem('token');
   console.log()
     return (
       <Navbar bg="light" expand="lg">
@@ -31,7 +34,7 @@ const NavBar =() => {
           navbarScroll
         >
 
-          {email===null 
+          {token===null 
             ? 
           <Button as={Link} to="/login" className="navbar-button bg-dark" size="lg">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus-lg" viewBox="0 0 16 16">
@@ -48,7 +51,7 @@ const NavBar =() => {
           </Button>
             }
 
-          {email===null 
+          {token===null 
             ? 
             
             

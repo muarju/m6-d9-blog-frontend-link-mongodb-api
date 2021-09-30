@@ -70,7 +70,7 @@ const NewBlogPost= () => {
           setIsValid(true)
             setTimeout(() => {
               setIsValid(false)
-              history.push("/new");
+              history.push("/");
             }, 3000)
         }
       
